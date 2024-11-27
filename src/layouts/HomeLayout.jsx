@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { Outlet, useLocation } from "react-router-dom";
+import { Outlet, useLocation, useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import LeftNavbar from "../components/layout-component/LeftNavbar";
 import RightNav from "../components/layout-component/RightNav";
@@ -9,6 +9,7 @@ import SliderTrue from "../components/SliderTrue";
 
 const HomeLayout = () => {
   const location = useLocation();
+  const navigate = useNavigate();
 
   // Function to get the page title based on the route
   const getPageTitle = () => {
@@ -83,7 +84,10 @@ const HomeLayout = () => {
             Join thousands of satisfied users today. Transform the way you work, communicate, and succeed.
           </p>
           <div>
-            <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg mr-4">
+            <button
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded-lg shadow-lg mr-4"
+              onClick={() => navigate("/")} // Redirects to the homepage
+            >
               Get Started
             </button>
             <button className="bg-transparent border-2 border-blue-500 hover:bg-blue-500 hover:text-white text-blue-500 font-bold py-3 px-8 rounded-lg shadow-lg">
